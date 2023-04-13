@@ -13,7 +13,7 @@
   <body>
     <div class="s130">
       <div class="inner-form" style="width: 80%">
-        <a href="/"><h3 style="color: white; text-align: center;">Results</h3></a>
+        <a href="/"><h3 style="color: white; text-align: center;">Search</h3></a>
         <ul>
           % for row in results:
           <li class="search-result">
@@ -21,11 +21,8 @@
               <a href="{{row['link']}}"><span>{{row['title']}}</span></a
               >
             </div>
-            <div class="search-result-summary">
-                {{row['summary']}}
-            </div>
             <div class="search-result-text">
-                <a href="{{row['uri']}}">{{row['description']}} ({{row['uri']}})</a>
+                {{row['description']}}
             </div>
 <!--            <div class="search-result-data">-->
 <!--                {{row['position']}}-->

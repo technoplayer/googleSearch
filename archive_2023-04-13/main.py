@@ -3,7 +3,6 @@
 import requests
 from bs4 import BeautifulSoup
 from bottle import Bottle, static_file, request, run, template
-from urllib.parse import urlparse
 
 
 app = Bottle()
@@ -30,7 +29,6 @@ def get_results(search_criteria, start_no):
 
     g = 0
     my_data = []
-    last_link = ""
     for i in range(0, len(all_data)):
         link = all_data[i].find('a').get('href')
 
@@ -40,7 +38,6 @@ def get_results(search_criteria, start_no):
 
                 g += 1
                 link_item["link"] = link
-
                 try:
                     link_item["title"] = all_data[i].find('h3').text
                 except AttributeError:
@@ -51,25 +48,9 @@ def get_results(search_criteria, start_no):
                 except AttributeError:
                     link_item["description"] = None
 
-                try:
-                    link_item['summary'] = all_data[i].find("div", {"class": "VwiC3b"}).text
-                except AttributeError:
-                    link_item["summary"] = None
-
-                try:
-                    link_item['summary'] = all_data[i].find("div", {"class": "VwiC3b"}).text
-                except AttributeError:
-                    link_item["summary"] = None
-
-                my_uri = urlparse(link_item["link"])
-                link_item["uri"] = '{uri.scheme}://{uri.netloc}/'.format(uri=my_uri)
-
                 link_item["position"] = g
 
-                if last_link != link_item["link"]:
-                    my_data.append(link_item)
-
-                last_link = link_item["link"]
+                my_data.append(link_item)
 
             else:
                 continue
@@ -118,7 +99,7 @@ def server_static(filename):
 @app.route('/search')
 def index():
     query = request.query['query']
-    return template(open('website/search.html').read(), results=gather_results(query, 20))
+    return template(open('website/search.html').read(), results=gather_results(query, 60))
 
 
 print('Serving on http://localhost:8080')

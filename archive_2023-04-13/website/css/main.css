@@ -826,7 +826,7 @@ button {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 150%;
-  padding: 5px;
+  padding: 15px;
 }
 
 .s130 form {
@@ -844,7 +844,7 @@ button {
   -ms-flex-align: center;
       align-items: center;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
+  border-radius: 34px;
   overflow: hidden;
   margin-bottom: 30px;
 }
@@ -990,7 +990,7 @@ ul {
   border: 1px solid #eaeaea;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.7);
-  padding: 5px;
+  padding: 20px;
   /*add transparent effect*/
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 1s ease-out 100ms
@@ -1008,12 +1008,6 @@ ul {
 
 .search-result-text {
   font-size: 14px;
-  color: rgb(0, 0, 0);
-  margin-bottom: 10px;
-}
-
-.search-result-summary {
-  font-size: 16px;
   color: rgb(0, 0, 0);
   margin-bottom: 10px;
 }
